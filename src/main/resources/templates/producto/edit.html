@@ -4,7 +4,7 @@
       layout:decorate="/layouts/_mainLayout">
 
 <div layout:fragment="content">
-    <h1>Modificar nuevo productoEISG</h1>
+    <h1>Modificar producto</h1>
     <hr>
     <form th:action="@{/productos/save}" th:object="${productoEISG}" method="post">
         <input type="hidden" th:field="*{id}">
