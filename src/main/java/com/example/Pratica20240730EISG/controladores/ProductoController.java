@@ -64,7 +64,7 @@ public class ProductoController {
         }
 
         productoService.crearOEditar(productoEISG);
-        attributes.addFlashAttribute("msg", "ProductoEISG creado correctamente");
+        attributes.addFlashAttribute("msg", "Producto creado correctamente");
         return "redirect:/productos";
     }
 
@@ -92,7 +92,7 @@ public class ProductoController {
     @PostMapping("/delete")
     public String delete(ProductoEISG productoEISG, RedirectAttributes attributes){
         productoService.eliminarPorId(productoEISG.getId());
-        attributes.addFlashAttribute("msg", "ProductoEISG eliminado correctamente");
+        attributes.addFlashAttribute("msg", "Producto eliminado correctamente");
         return "redirect:/productos";
     }
 
