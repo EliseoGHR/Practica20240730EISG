@@ -11,27 +11,27 @@
     <div>
         <dl class="row">
             <dt class = "col-sm-2" >Id</dt>
-            <dd class = "col-sm-10" th:text="${producto.id}"></dd>
+            <dd class = "col-sm-10" th:text="${productoEISG.id}"></dd>
 
             <dt class = "col-sm-2">Nombre</dt>
-            <dd class = "col-sm-10" th:text="${producto.nombreEISG}"></dd>
+            <dd class = "col-sm-10" th:text="${productoEISG.nombreEISG}"></dd>
 
             <dt class = "col-sm-2">Descripción</dt>
-            <dd class = "col-sm-10" th:text="${producto.descripcionEISG}"></dd>
+            <dd class = "col-sm-10" th:text="${productoEISG.descripcionEISG}"></dd>
             <dt class = "col-sm-2">Precio</dt>
-            <dd class = "col-sm-10" th:text="${producto.precioEISG}"></dd>
+            <dd class = "col-sm-10" th:text="${productoEISG.precioEISG}"></dd>
             <dt class = "col-sm-2">Fecha vencimiento</dt>
-            <dd class = "col-sm-10" th:text="${producto.fechaVencimientoEISG}"></dd>
+            <dd class = "col-sm-10" th:text="${productoEISG.fechaVencimientoEISG}"></dd>
             <dt class = "col-sm-2">Estatus</dt>
             <dd class="col-sm-10">
-            <span th:text="${producto.estatusEISG == 1 ? 'Disponible' : 'Agotado'}"></span>
+            <span th:text="${productoEISG.estatusEISG == 1 ? 'Disponible' : 'Agotado'}"></span>
             </dd>
             <dt class = "col-sm-2">Existencias</dt>
-            <dd class = "col-sm-10" th:text="${producto.existenciaEISG}"></dd>
+            <dd class = "col-sm-10" th:text="${productoEISG.existenciaEISG}"></dd>
         </dl>
 
         <form th:action="@{/productos/delete}" method="post">
-            <input type="hidden" name="Id" th:value="${producto.id}">
+            <input type="hidden" name="Id" th:value="${productoEISG.id}">
             <input type="submit" value="Eliminar" class="btn btn-outline-danger"> |
             <a th:href="@{/productos}" class="btn btn-outline-secondary">Regresar</a>
         </form>

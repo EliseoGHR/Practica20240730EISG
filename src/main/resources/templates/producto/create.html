@@ -4,14 +4,14 @@
       layout:decorate="/layouts/_mainLayout">
 
 <div layout:fragment="content">
-    <h1>Crear nuevo producto</h1>
+    <h1>Crear nuevo productoEISG</h1>
     <hr>
-    <form th:action="@{/productos/save}" th:object="${producto}" method="post">
+    <form th:action="@{/productos/save}" th:object="${productoEISG}" method="post">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="nombre">Nombre<span style="color:red;">*</span></label>
-                    <input type="text" class="form-control" th:field="*{nombreEISG}" id="nombre" placeholder="Escriba el nombre del producto" required>
+                    <input type="text" class="form-control" th:field="*{nombreEISG}" id="nombre" placeholder="Escriba el nombre del productoEISG" required>
                     <div th:if="${#fields.hasErrors('nombreEISG')}" class="alert alert-danger">
                         <span th:each="err : ${#fields.errors('nombreEISG')}" th:text="${err}"></span>
                     </div>
@@ -32,7 +32,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="precio">Precio<span style="color:red;">*</span></label>
-                    <input type="number" step="0.01" class="form-control" th:field="*{precioEISG}" id="precio" placeholder="Escriba el precio del producto" required>
+                    <input type="number" step="0.01" class="form-control" th:field="*{precioEISG}" id="precio" placeholder="Escriba el precio del productoEISG" required>
                     <div th:if="${#fields.hasErrors('precioEISG')}" class="alert alert-danger">
                         <span th:each="err : ${#fields.errors('precioEISG')}" th:text="${err}"></span>
                     </div>
@@ -64,7 +64,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="existencia">Existencia<span style="color:red;">*</span></label>
-                    <input type="number" class="form-control" th:field="*{existenciaEISG}" id="existencia" placeholder="Escriba la existencia del producto">
+                    <input type="number" class="form-control" th:field="*{existenciaEISG}" id="existencia" placeholder="Escriba la existencia del productoEISG">
                     <div th:if="${#fields.hasErrors('existenciaEISG')}" class="alert alert-danger">
                         <span th:each="err : ${#fields.errors('existenciaEISG')}" th:text="${err}"></span>
                     </div>

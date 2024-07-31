@@ -1,6 +1,6 @@
 package com.example.Pratica20240730EISG.controladores;
 
-import com.example.Pratica20240730EISG.modelos.Producto;
+import com.example.Pratica20240730EISG.modelos.ProductoEISG;
 import com.example.Pratica20240730EISG.servicios.interfaces.IProductoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +33,10 @@ public class ProductoController {
 
 
 
-        Page<Producto> productos = productoService.buscarTodosPaginados(pageable);
+        Page<ProductoEISG> productos = productoService.buscarTodosPaginados(pageable);
         // Formatear fechas antes de pasar al modelo
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        productos.forEach(producto -> producto.setFormattedFechaVencimientoEISG(producto.getFechaVencimientoEISG().format(formatter)));
+        productos.forEach(productoEISG -> productoEISG.setFormattedFechaVencimientoEISG(productoEISG.getFechaVencimientoEISG().format(formatter)));
         model.addAttribute("productos", productos);
 
         int totalPages = productos.getTotalPages();
@@ -51,48 +51,48 @@ public class ProductoController {
     }
 
     @GetMapping("/create")
-    public String create(Producto producto){
+    public String create(ProductoEISG productoEISG){
         return "producto/create";
     }
 
     @PostMapping("/save")
-    public String save(@Valid Producto producto, BindingResult result, Model model, RedirectAttributes attributes){
+    public String save(@Valid ProductoEISG productoEISG, BindingResult result, Model model, RedirectAttributes attributes){
         if(result.hasErrors()){
-            model.addAttribute(producto);
+            model.addAttribute(productoEISG);
             attributes.addFlashAttribute("error", "No se pudo guardar debido a un error.");
             return "producto/create";
         }
 
-        productoService.crearOEditar(producto);
-        attributes.addFlashAttribute("msg", "Producto creado correctamente");
+        productoService.crearOEditar(productoEISG);
+        attributes.addFlashAttribute("msg", "ProductoEISG creado correctamente");
         return "redirect:/productos";
     }
 
     @GetMapping("/details/{id}")
     public String details(@PathVariable("id") Integer id, Model model){
-        Producto producto = productoService.buscarPorId(id).get();
-        model.addAttribute("producto", producto);
+        ProductoEISG productoEISG = productoService.buscarPorId(id).get();
+        model.addAttribute("producto", productoEISG);
         return "producto/details";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Integer id, Model model){
-        Producto producto = productoService.buscarPorId(id).get();
-        model.addAttribute("producto", producto);
+        ProductoEISG productoEISG = productoService.buscarPorId(id).get();
+        model.addAttribute("producto", productoEISG);
         return "producto/edit";
     }
 
     @GetMapping("/remove/{id}")
     public String remove(@PathVariable("id") Integer id, Model model){
-        Producto producto = productoService.buscarPorId(id).get();
-        model.addAttribute("producto", producto);
+        ProductoEISG productoEISG = productoService.buscarPorId(id).get();
+        model.addAttribute("producto", productoEISG);
         return "producto/delete";
     }
 
     @PostMapping("/delete")
-    public String delete(Producto producto, RedirectAttributes attributes){
-        productoService.eliminarPorId(producto.getId());
-        attributes.addFlashAttribute("msg", "Producto eliminado correctamente");
+    public String delete(ProductoEISG productoEISG, RedirectAttributes attributes){
+        productoService.eliminarPorId(productoEISG.getId());
+        attributes.addFlashAttribute("msg", "ProductoEISG eliminado correctamente");
         return "redirect:/productos";
     }
 

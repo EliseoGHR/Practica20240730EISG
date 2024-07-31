@@ -1,19 +1,15 @@
 package com.example.Pratica20240730EISG.modelos;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "productos")
-public class Producto {
+public class ProductoEISG {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

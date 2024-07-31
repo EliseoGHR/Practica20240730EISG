@@ -1,6 +1,6 @@
 package com.example.Pratica20240730EISG.servicios.implementaciones;
 
-import com.example.Pratica20240730EISG.modelos.Producto;
+import com.example.Pratica20240730EISG.modelos.ProductoEISG;
 import com.example.Pratica20240730EISG.repositorios.IProductoRepository;
 import com.example.Pratica20240730EISG.servicios.interfaces.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,23 +18,23 @@ public class ProductoService implements IProductoService {
     private IProductoRepository productoRepository;
 
     @Override
-    public Page<Producto> buscarTodosPaginados(Pageable pageable) {
+    public Page<ProductoEISG> buscarTodosPaginados(Pageable pageable) {
         return productoRepository.findAll(pageable);
     }
 
     @Override
-    public List<Producto> obtenerTodos() {
+    public List<ProductoEISG> obtenerTodos() {
         return productoRepository.findAll();
     }
 
     @Override
-    public Optional<Producto> buscarPorId(Integer id) {
+    public Optional<ProductoEISG> buscarPorId(Integer id) {
         return productoRepository.findById(id);
     }
 
     @Override
-    public Producto crearOEditar(Producto producto) {
-        return productoRepository.save(producto);
+    public ProductoEISG crearOEditar(ProductoEISG productoEISG) {
+        return productoRepository.save(productoEISG);
     }
 
     @Override

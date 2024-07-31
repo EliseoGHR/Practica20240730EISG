@@ -1,5 +1,5 @@
 package com.example.Pratica20240730EISG.servicios.interfaces;
-import com.example.Pratica20240730EISG.modelos.Producto;
+import com.example.Pratica20240730EISG.modelos.ProductoEISG;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IProductoService {
-    Page<Producto> buscarTodosPaginados(Pageable pageable);
+    Page<ProductoEISG> buscarTodosPaginados(Pageable pageable);
 
-    List<Producto> obtenerTodos();
+    List<ProductoEISG> obtenerTodos();
 
-    Optional<Producto> buscarPorId(Integer id);
+    Optional<ProductoEISG> buscarPorId(Integer id);
 
-    Producto crearOEditar(Producto producto);
+    ProductoEISG crearOEditar(ProductoEISG productoEISG);
 
     void eliminarPorId(Integer id);
 }
